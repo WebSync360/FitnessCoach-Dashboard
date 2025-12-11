@@ -1,0 +1,26 @@
+{
+  "name": "fitnesscoach-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebSync360/FitnessCoach-Dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebSync360/FitnessCoach-Dashboard/issues"
+  },
+  "homepage": "https://github.com/WebSync360/FitnessCoach-Dashboard#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "live-server": "^1.2.2",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.3.3"
+  }
+}
