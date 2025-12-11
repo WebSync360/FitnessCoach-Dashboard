@@ -3,10 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitnessCoach Dashboard</title>
-  <link rel="icon" href="favicon.ico">
-</head>
-<body>
+  <title>Fitness Coach Dashboard</title>
   
+  <!-- Tailwind CSS CDN (for quick setup, replace with your build in production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Optional: Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Sidebar -->
+  <aside
+    id="sidebar"
+    class="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg border-r border-gray-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50"
+  >
+    <!-- Logo / Brand -->
+    <div class="flex items-center justify-center h-20 border-b border-gray-200">
+      <span class="text-2xl font-bold text-indigo-600 tracking-wide">
+        FitCoach
+      </span>
+    </div>
+
+    <!-- Menu Items -->
+    <nav class="mt-6">
+      <ul class="space-y-2">
+        <!-- Dashboard (active) -->
+        <li>
+          <a href="#"
+             class="flex items-center px-6 py-3 text-gray-700 bg-indigo-50 font-medium rounded-lg shadow-sm hover:bg-indigo-100 hover:text-indigo-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-indigo-600" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7m-9 2v8" />
+            </svg>
+            Dashboard
+          </a>
+        </li>
+
+        <!-- Leads -->
+        <li>
+          <a href="#"
+             class="flex items-center px-6 py-3 text-gray-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 17v-2a4 4 0 014-4h4" />
+            </svg>
+            Leads
+          </a>
+        </li>
+
+        <!-- Messages -->
+        <li>
+          <a href="#"
+             class="flex items-center px-6 py-3 text-gray-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 8h10M7 12h4m-2 8a9 9 0 100-18 9 9 0 000 18z" />
+            </svg>
+            Messages
+          </a>
+        </li>
+
+        <!-- Revenue -->
+        <li>
+          <a href="#"
+             class="flex items-center px-6 py-3 text-gray-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8c-3.866 0-7 1.79-7 4s3.134 4 7 4 7-1.79 7-4-3.134-4-7-4z" />
+            </svg>
+            Revenue
+          </a>
+        </li>
+
+        <!-- Analytics -->
+        <li>
+          <a href="#"
+             class="flex items-center px-6 py-3 text-gray-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11 17l-4-4m0 0l4-4m-4 4h12" />
+            </svg>
+            Analytics
+          </a>
+        </li>
+
+        <!-- Settings -->
+        <li>
+          <a href="#"
+             class="flex items-center px-6 py-3 text-gray-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8c-1.333 0-2 .667-2 2s.667 2 2 2 2-.667 2-2-.667-2-2-2zM12 12v8" />
+            </svg>
+            Settings
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Mobile Hamburger Button -->
+  <button id="sidebarToggle"
+          class="fixed top-4 left-4 z-50 md:hidden p-2 bg-white rounded-lg shadow-lg">
+    <svg class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <!-- Main Content Container -->
+  <div class="ml-0 md:ml-64 transition-all duration-300">
+    <!-- Topbar Placeholder -->
+    <header class="h-20 bg-white shadow-sm flex items-center justify-between px-6 border-b border-gray-200">
+      <div class="text-xl font-semibold text-gray-700">Dashboard</div>
+      <div class="flex items-center space-x-4">
+        <input type="text" placeholder="Search..."
+               class="hidden sm:block px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 17h5l-1.405-1.405M19 13V8a7 7 0 10-14 0v5l-1.405 1.405" />
+          </svg>
+        </button>
+        <div class="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
+          <img src="https://via.placeholder.com/40" alt="User Avatar">
+        </div>
+      </div>
+    </header>
+
+    <!-- Scrollable Content Placeholder -->
+    <main class="p-6 h-screen overflow-y-auto bg-gray-50">
+      <h2 class="text-2xl font-semibold mb-4">Welcome, Coach!</h2>
+      <!-- Stats Cards Placeholder -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div class="bg-white shadow rounded-xl p-5">Stats Card 1</div>
+        <div class="bg-white shadow rounded-xl p-5">Stats Card 2</div>
+        <div class="bg-white shadow rounded-xl p-5">Stats Card 3</div>
+        <div class="bg-white shadow rounded-xl p-5">Stats Card 4</div>
+      </div>
+
+      <!-- Charts Placeholder -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white shadow rounded-xl h-64">Revenue Chart</div>
+        <div class="bg-white shadow rounded-xl h-64">Lead Sources Chart</div>
+      </div>
+
+      <!-- Messages Preview Placeholder -->
+      <div class="bg-white shadow rounded-xl p-5 mb-6">Messages Preview Section</div>
+
+      <!-- Leads Table Placeholder -->
+      <div class="bg-white shadow rounded-xl p-5 mb-6">Leads Table Section</div>
+
+      <!-- Coach Add-ons / Insights -->
+      <div class="bg-white shadow rounded-xl p-5">Add-ons / Insights Section</div>
+    </main>
+  </div>
+
+  <!-- Sidebar Toggle Script -->
+  <script src="src/script.js"></script>
 </body>
 </html>
